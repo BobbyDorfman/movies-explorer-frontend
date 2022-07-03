@@ -1,2 +1,10 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
+
+.body {
+  background: white;
+  height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}

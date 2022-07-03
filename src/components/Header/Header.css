@@ -1,0 +1,160 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(243, 193, 248, 1);
+  color: black;
+  margin: auto;
+  padding: 0;
+}
+
+.header__not-home-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin: auto;
+  padding: 0;
+}
+
+.header__logo {
+  max-width: 38px;
+  margin: 18px 0 18px 70px;
+  padding: 0;
+}
+
+.header__logo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 183px;
+  margin: 18px 70px 18px 0;
+  padding: 0;
+}
+
+.header__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  margin: auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__text:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__button {
+  min-width: 76px;
+  max-width: 76px;
+  min-height: 32px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  margin: auto 0;
+  padding: 5px;
+  transition: all 0.4s ease-in-out;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 70px 18px 0;
+  padding: 0;
+}
+
+.header__navigation-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  margin: auto 20px auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #000000;
+  transition: all .4s ease-in-out;
+}
+
+.header__navigation-link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.header__account {
+  max-width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 0 auto 30px;
+  padding: 0;
+}
+
+.header__account-text {
+  min-width: 70px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  margin: auto 17px auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__account-text:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__account-button {
+  min-width: 26px;
+  min-height: 30px;
+  border: 1px solid rgba(249, 249, 249, 1);
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 4px;
+  margin: auto 0;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__account-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__account-logo {
+  margin: 0;
+  padding: 0;
+}
