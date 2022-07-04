@@ -1,4 +1,4 @@
-import '../index.css';
+import './SavedMovies.css';
 import React from "react";
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import MoviesCard from '../MoviesCard/MoviesCard'
