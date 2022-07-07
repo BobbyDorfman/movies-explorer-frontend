@@ -1,9 +1,9 @@
 import './Navigation.css';
 
 function Navigation() {
-    return (
-      <section className="navigation">
-      </section>
+  return (
+    <section className="navigation">
+    </section>
   );
 }
 

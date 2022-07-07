@@ -1,9 +1,9 @@
 import './Profile.css';
 
 function Profile() {
-    return (
-      <section className="profile">
-      </section>
+  return (
+    <section className="profile">
+    </section>
   );
 }
 

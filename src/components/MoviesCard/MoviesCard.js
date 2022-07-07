@@ -1,9 +1,9 @@
 import './MoviesCard.css';
 
 function MoviesCard() {
-    return (
-      <section className="movies-card">
-      </section>
+  return (
+    <section className="movies-card">
+    </section>
   );
 }
 

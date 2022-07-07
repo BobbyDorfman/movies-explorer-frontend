@@ -1,9 +1,9 @@
 import './Login.css';
 
 function Login() {
-    return (
-      <section className="login">
-      </section>
+  return (
+    <section className="login">
+    </section>
   );
 }
 
