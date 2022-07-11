@@ -29,7 +29,7 @@ function Header() {
   }
 
   function handleAccount() {
-    navigate('/account');
+    navigate('/profile');
   }
 
   return (
@@ -44,7 +44,7 @@ function Header() {
         </header>)}
       {(location.pathname === '/movies' ||
         location.pathname === '/saved-movies' ||
-        location.pathname === '/account') &&
+        location.pathname === '/profile') &&
           (<header className="header header__not-home-page">
             <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
             <nav className="header__navigation">

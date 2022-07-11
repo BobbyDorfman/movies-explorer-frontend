@@ -8,8 +8,7 @@ function Footer() {
   return (
     location.pathname === "/" ||
     location.pathname === "/movies" ||
-    location.pathname === "/saved-movies" ||
-    location.pathname === "/profile" ?
+    location.pathname === "/saved-movies" ?
     <footer className="footer">
       <h3 className='footer__header'>Учебный проект Яндекс.Практикум х BeatFilm.</h3>
       <div className='footer__block'>
