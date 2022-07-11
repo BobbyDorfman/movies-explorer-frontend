@@ -12,7 +12,7 @@ function SearchForm() {
             <img className="search-form__icon" src={searchIcon} alt="Аккаунт"/>
           </button>
         </form>
-        <div class="search-form__checkbox">
+        <div className="search-form__checkbox">
           <input className="search-form__toggle" type="checkbox" id="toggle-button"/>
           <label className="search-form__slider">Короткометражки</label>
         </div>

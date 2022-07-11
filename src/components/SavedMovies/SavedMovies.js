@@ -1,14 +1,15 @@
 import './SavedMovies.css';
+import saveMovies from '../../utils/saveMoviesConst';
 import React from "react";
+import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
-import MoviesCard from '../MoviesCard/MoviesCard'
 
 function SavedMovies() {
   return (
       <main>
           <section className="saved-movies">
-            <MoviesCardList/> {/* форма поиска, куда пользователь будет вводить запрос */}
-            <MoviesCard/> {/* компонент одной карточки фильма. */}
+            <SearchForm/> {/* форма поиска, куда пользователь будет вводить запрос */}
+            <MoviesCardList movies={saveMovies}/> {/* форма поиска, куда пользователь будет вводить запрос */}
           </section>
       </main>
   );

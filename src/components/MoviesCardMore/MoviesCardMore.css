@@ -1,0 +1,29 @@
+.movies-card-more {
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+}
+
+.movies-card-more__button {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid rgba(249, 249, 249, 1);
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 6px;
+  margin: 50px auto 80px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: black;
+  transition: all 0.4s ease-in-out;
+}
+
+.movies-card-more__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
