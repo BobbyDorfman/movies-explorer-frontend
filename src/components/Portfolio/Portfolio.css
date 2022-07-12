@@ -66,3 +66,22 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    width: calc(100% - 100px);
+  }
+  .portfolio__links {
+    margin: 0 auto 90px;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 784px;
+  }
+}

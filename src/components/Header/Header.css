@@ -159,3 +159,19 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    margin: 18px 0 18px 30px;
+  }
+
+  .header__nav {
+    margin: 18px 30px 18px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .app {
+    width: 320px;
+  }
+}

@@ -107,3 +107,43 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .about-me {
+    width: calc(100% - 100px);
+  }
+  .about-me__header {
+    margin: 90px auto 66px;
+  }
+  .about-me__text {
+    width: 364px;
+  }
+  .about-me__title {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .about-me__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 20px;
+  }
+  .about-me__descriptions {
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 87px 0;
+  }
+  .about-me__avatar {
+    width: 255px;
+    height: 307px;
+  }
+  .about-me__links {
+    margin: 0 0 90px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 784px;
+  }
+}

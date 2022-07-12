@@ -1,16 +1,9 @@
 .promo {
   display: block;
   position: relative;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   width: 100%;
   min-height: 524px;
   background-color: rgba(243, 193, 248, 1);
-  /* background-image: url(../../images/pic__COLOR_landing-logo.png);
-  background-repeat: no-repeat;
-  background-position: center; */
   color: black;
   margin: 0 auto;
   padding: 0;
@@ -46,4 +39,22 @@
   height: 320px;
   margin: auto;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .promo {
+    min-height: 784px;
+  }
+  .promo__title {
+    top: 384px;
+  }
+  .promo__img {
+    top: 384px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 784px;
+  }
 }

@@ -141,3 +141,31 @@
   min-height: 17px;
   color: rgba(160, 160, 160, 1);
 }
+
+@media screen and (max-width: 768px) {
+  .about-project {
+    width: calc(100% - 100px);
+  }
+  .about-project__header {
+    margin: 90px auto 70px;
+  }
+  .about-project__title {
+    margin: auto 20px auto 0;
+    padding: 0;
+    white-space: normal;
+  }
+  .about-project__subtitle {
+    margin: auto 0;
+    padding-right: 20px;
+  }
+  .about-project__subtitles {
+    width: 100%;
+    margin: 22px auto 93px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 784px;
+  }
+}

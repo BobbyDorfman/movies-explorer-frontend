@@ -98,3 +98,30 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 768px) {
+  .techs__header {
+    width: calc(100% - 100px);
+    margin: 90px auto 80px;
+  }
+  .techs__text_subtitle {
+    margin: 22px auto 83px;
+  }
+  .techs__visualizations {
+    width: calc(100% - 120px);
+    margin: 0 auto 90px;
+  }
+  .techs__visualizations_block {
+    width: 84px;
+    min-height: 57px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 784px;
+  }
+}
