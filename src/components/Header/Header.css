@@ -24,6 +24,7 @@
   max-width: 38px;
   margin: 18px 0 18px 70px;
   padding: 0;
+  transition: all 0.4s ease-in-out;
 }
 
 .header__logo:hover {

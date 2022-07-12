@@ -1,0 +1,138 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 396px;
+  margin: 70px auto;
+  padding: 0;
+}
+
+.login__logo {
+  width: 38px;
+  height: 38px;
+  transition: all 0.4s ease-in-out;
+}
+
+.login__logo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.login__block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.login__form {
+  width: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+.login__header {
+  width: 100%;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px auto;
+  padding: 0;
+  padding-right: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.login__form-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 auto 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1)
+}
+
+.login__form-input:last-of-type {
+  margin: 0 auto;
+}
+
+.login__label {
+  width: 100%;
+  margin: 0 auto 5px;
+  padding: 0;
+  padding-right: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(160, 160, 160, 1);
+}
+
+.login__input {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  padding-right: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.login__button {
+  width: 100%;
+  min-height: 45px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: black;
+  margin: 221px auto 16px;
+  padding: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.login__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.login__text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgba(160, 160, 160, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.login__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 0 0 6px;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}

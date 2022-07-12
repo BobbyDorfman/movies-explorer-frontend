@@ -3,8 +3,10 @@
 
 .body {
   background: white;
-  height: 100vh;
+  /* height: 100vh; */
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
+  margin: 0 auto;
+  padding: 0;
 }
