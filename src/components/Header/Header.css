@@ -170,8 +170,12 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .app {
-    width: 320px;
+@media screen and (max-width: 450px) {
+  .header__logo {
+    margin: 18px 0 18px 14px;
+  }
+
+  .header__nav {
+    margin: 24px 14px 24px 0;
   }
 }

@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 360px;
-  height: 319px;
+  max-width: 360px;
+  max-height: 319px;
   background-color: #FDFDFD;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
@@ -78,4 +78,10 @@
 
 .movies-card__like_delete {
   background-image: url("../../images/delete.svg");
+}
+
+@media screen and (max-width: 960px) {
+  .movies-card {
+    max-width: 342px;
+  }
 }

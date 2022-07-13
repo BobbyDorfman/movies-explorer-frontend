@@ -4,14 +4,12 @@ function AboutProject() {
   return (
     <section className="about-project" id='about_project'>
       <h2 className='about-project__header'>О проекте</h2>
-      <div className='about-project__titles'>
-        <h3 className='about-project__title'>Дипломный проект включал 5 этапов</h3>
-        <h3 className='about-project__title'>На выполнение диплома ушло 5 недель</h3>
-      </div>
-      <div className='about-project__subtitles'>
-        <p className='about-project__subtitle'>Составление плана, работу над бэкендом, вёрстку,
+      <div className='about-project__table'>
+        <h3 className='about-project__table-title' id='h1'>Дипломный проект включал 5 этапов</h3>
+        <h3 className='about-project__table-title' id='h2'>На выполнение диплома ушло 5 недель</h3>
+        <p className='about-project__table-subtitle' id='p1'>Составление плана, работу над бэкендом, вёрстку,
         добавление функциональности и финальные доработки.</p>
-        <p className='about-project__subtitle'>У каждого этапа был мягкий и жёсткий дедлайн, которые
+        <p className='about-project__table-subtitle' id='p2'>У каждого этапа был мягкий и жёсткий дедлайн, которые
         нужно было соблюдать, чтобы успешно защититься.</p>
       </div>
       <div className='about-project__visualizations'>
