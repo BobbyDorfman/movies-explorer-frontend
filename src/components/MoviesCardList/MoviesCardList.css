@@ -12,3 +12,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card-list {
+    width: calc(100% - 60px);
+    grid-template-columns: 1fr;
+    grid-gap: 35px;
+    margin: 70px auto 30px;
+  }
+}

@@ -27,3 +27,9 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card-more {
+    width: calc(100% - 60px);
+  }
+}

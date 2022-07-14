@@ -55,3 +55,27 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  .not-found {
+    height: 100vh;
+  }
+  .not-found__title {
+    max-width: 300px;
+    font-size: 80px;
+    line-height: 97px;
+    margin: auto auto 0;
+  }
+  .not-found__subtitle {
+    max-width: 300px;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 auto 274px auto;
+  }
+  .not-found__link {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 auto 25px ;
+    padding: 5px;
+  }
+}

@@ -136,3 +136,42 @@
   padding: 0;
   transition: all 0.4s ease-in-out;
 }
+
+@media screen and (max-width: 500px) {
+  .register {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    width: calc(100% - 60px);
+    height: 100vh;
+    margin: auto;
+  }
+  .register__logo {
+    margin: 56px auto 0;
+  }
+  .register__header {
+    width: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 50px auto 80px;
+    text-align: center;
+  }
+  .register__button {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 157px auto 14px;
+  }
+  .register__text {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 auto 30px;
+  }
+  .register__link {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 0 0 7px;
+  }
+}

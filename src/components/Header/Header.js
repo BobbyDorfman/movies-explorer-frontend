@@ -2,8 +2,12 @@ import './Header.css';
 import logoHeader from '../../images/logo.svg';
 import accountIcon from '../../images/icon__COLOR_icon-main.svg';
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import {useState} from "react";
+import Navigation from "../Navigation/Navigation";
 
 function Header() {
+
+  const [isActive, setIsActive] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,8 +36,12 @@ function Header() {
     navigate('/profile');
   }
 
+  function handleNav() {
+    setIsActive(!isActive);
+  }
+
   return (
-    <div className='location'>
+    <div className="location">
       {location.pathname === '/' &&
         (<header className="header">
           <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
@@ -59,7 +67,11 @@ function Header() {
                   <img className="header__account-logo" src={accountIcon} alt="Аккаунт"/>
                 </button>
               </div>
+              <button className={`header__burger ${isActive ? "header__burger_active" : ''}`} type="button" onClick={handleNav}>
+                {/* <span className={`header__burger-nav ${isActive ? "header__burger-nav_active" : ''}`}></span> */}
+              </button>
             </nav>
+            {isActive ? <Navigation/> : ''}
           </header>)}
     </div>
   );

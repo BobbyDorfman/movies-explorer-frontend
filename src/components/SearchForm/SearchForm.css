@@ -136,3 +136,12 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    width: calc(100% - 60px);
+  }
+  .search-form__area {
+    margin: 80px auto 40px;
+  }
+}

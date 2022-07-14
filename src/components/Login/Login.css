@@ -136,3 +136,42 @@
   padding: 0;
   transition: all 0.4s ease-in-out;
 }
+
+@media screen and (max-width: 500px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    width: calc(100% - 60px);
+    height: 100vh;
+    margin: auto;
+  }
+  .login__logo {
+    margin: 56px auto 0;
+  }
+  .login__header {
+    width: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 50px auto 80px;
+    text-align: center;
+  }
+  .login__button {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 240px auto 14px;
+  }
+  .login__text {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 auto 30px;
+  }
+  .login__link {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 0 0 7px;
+  }
+}
