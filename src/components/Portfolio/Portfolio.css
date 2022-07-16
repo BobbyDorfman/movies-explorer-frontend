@@ -1,0 +1,112 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 140px);
+  color: black;
+  margin: auto;
+  padding: 0;
+}
+
+.portfolio__header {
+  max-width: 250px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0 0 50px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 5px;
+  color: rgba(160, 160, 160, 1);
+}
+
+.portfolio__links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 125px;
+  /* padding-bottom: 19px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1); */
+}
+
+.portfolio__link {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 50px;
+  margin: 0 0 40px 0;
+  padding-right: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #000000;
+  transition: all .4s ease-in-out;
+  padding-bottom: 19px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.portfolio__link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.portfolio__link:last-child {
+  margin: 0;
+  border-bottom: none;
+}
+
+.portfolio__link-text {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    width: calc(100% - 100px);
+  }
+  .portfolio__links {
+    margin: 0 auto 90px;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio__header {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .portfolio__link {
+    font-size: 20px;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .portfolio {
+    width: calc(100% - 36px);
+  }
+  .portfolio__header {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 40px 0;
+  }
+  .portfolio__links {
+    margin: 0 auto 90px;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    font-size: 15px;
+    line-height: 26px;
+  }
+}

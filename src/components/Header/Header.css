@@ -1,0 +1,247 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(243, 193, 248, 1);
+  color: black;
+  margin: auto;
+  padding: 0;
+  z-index: 1;
+}
+
+/* .location-active {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+} */
+
+.header__not-home-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin: auto;
+  padding: 0;
+}
+
+.header__logo {
+  max-width: 38px;
+  margin: 18px 0 18px 70px;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__logo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 183px;
+  margin: 18px 70px 18px 0;
+  padding: 0;
+}
+
+.header__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  margin: auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__text:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__button {
+  min-width: 76px;
+  max-width: 76px;
+  min-height: 32px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  margin: auto 0;
+  padding: 5px;
+  transition: all 0.4s ease-in-out;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 70px 18px 0;
+  padding: 0;
+}
+
+.header__navigation-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  margin: auto 20px auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #000000;
+  transition: all .4s ease-in-out;
+}
+
+.header__navigation-link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.header__account {
+  max-width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto 0 auto 30px;
+  padding: 0;
+}
+
+.header__account-text {
+  min-width: 70px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  margin: auto 17px auto 0;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__account-text:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__account-button {
+  min-width: 26px;
+  min-height: 30px;
+  border: 1px solid rgba(249, 249, 249, 1);
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 4px;
+  margin: auto 0;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__account-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__account-logo {
+  margin: 0;
+  padding: 0;
+}
+
+.header__burger {
+  min-width: 44px;
+  min-height: 44px;
+  background-image: url(../../images/burger.svg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  border: none;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__burger:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__burger_active {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  min-width: 44px;
+  min-height: 44px;
+  background-image: url(../../images/exit.svg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  z-index: 3;
+  background-position: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__burger_active:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  .header__burger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .header__navigation-links {
+    display: none;
+  }
+  .header__account {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    margin: 18px 0 18px 30px;
+  }
+  .header__nav {
+    margin: 18px 30px 18px 0;
+  }
+  .header__navigation {
+    margin: 15px 30px 15px 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__logo {
+    margin: 18px 0 18px 14px;
+  }
+  .header__nav {
+    margin: 24px 14px 24px 0;
+  }
+  .header__navigation {
+    margin: 15px 14px 16px 0;
+  }
+  .header__burger_active {
+    right: 15px;
+  }
+}

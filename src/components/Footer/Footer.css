@@ -1,0 +1,120 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 140px);
+  margin: auto;
+  padding: 0;
+}
+
+.footer__header {
+  width: 100%;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  margin: 79px auto 41px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(160, 160, 160, 1);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.footer__block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto 20px;
+  padding: 0;
+}
+
+.footer__copyright {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0 20px 0 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #000000;
+  transition: all .4s ease-in-out;
+}
+
+.footer__link:last-child {
+  margin: 0;
+}
+
+.footer__link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    width: calc(100% - 100px);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .footer__header {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 79px auto 30px;
+    padding-bottom: 21px;
+  }
+  .footer__block {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+    padding: 0;
+  }
+  .footer__nav {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__link {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 auto 12px;
+  }
+  .footer__link:last-of-type {
+    margin: 0 auto 0;
+  }
+  .footer__copyright {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 30px auto 0;
+  }
+}
