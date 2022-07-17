@@ -1,4 +1,6 @@
 import './MoviesCard.css';
+// import {useState} from "react";
+// import {useLocation} from "react-router-dom";
 
 function MoviesCard({ title, duration, link, isLiked, owner }) {
   return (

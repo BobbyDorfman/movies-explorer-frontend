@@ -12,11 +12,11 @@ function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  function handleRegister() {
+  function handleSignUp() {
     navigate('/signup');
   }
 
-  function handleLogin() {
+  function handleSignIn() {
     navigate('/signin');
   }
 
@@ -46,8 +46,8 @@ function Header() {
         (<header className="header">
           <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
           <nav className="header__nav">
-            <p className="header__text" onClick={handleRegister}>Регистрация</p>
-            <button className='header__button' type="button" onClick={handleLogin}>Войти</button>
+            <p className="header__text" onClick={handleSignUp}>Регистрация</p>
+            <button className='header__button' type="button" onClick={handleSignIn}>Войти</button>
           </nav>
         </header>)}
       {(location.pathname === '/movies' ||

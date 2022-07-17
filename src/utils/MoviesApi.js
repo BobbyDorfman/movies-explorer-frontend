@@ -34,8 +34,8 @@ class MoviesApi {
 }
 
 const moviesApi = new MoviesApi({
-  url: 'http://localhost:3001',
-  // url: 'https://api.bobbydorfman.movies.nomoredomains.xyz',
+  // url: 'http://localhost:3001',
+  url: 'https://api.nomoreparties.co/beatfilm-movies',
   headers: {
     "Content-Type": "application/json",
   },

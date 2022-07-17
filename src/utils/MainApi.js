@@ -21,7 +21,7 @@ class MainApi {
   }
 
   // Добавление сохраненных фильмов с сервера
-  getMovies() {
+  getSavedMovies() {
     return fetch(`${this._url}/movies`, {
       method: 'GET',
       headers: this._getToken()
