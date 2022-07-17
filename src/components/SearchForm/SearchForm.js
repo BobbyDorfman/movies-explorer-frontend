@@ -7,7 +7,7 @@ function SearchForm() {
     return (
       <section className="search-form">
         <form className='search-form__area' action="">
-          <input className='search-form__input' type="search" id="search" name="search" placeholder='Фильм'/>
+          <input className='search-form__input' type="search" id="search" name="search" placeholder='Фильм' required/>
           <button className='search-form__button'>
             <img className="search-form__icon" src={searchIcon} alt="Аккаунт"/>
           </button>
