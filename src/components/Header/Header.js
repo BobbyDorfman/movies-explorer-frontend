@@ -5,18 +5,18 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import {useState} from "react";
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({ loggedIn }) {
 
   const [isActive, setIsActive] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  function handleSignUp() {
+  function handleRegister() {
     navigate('/signup');
   }
 
-  function handleSignIn() {
+  function handleLogin() {
     navigate('/signin');
   }
 
@@ -42,18 +42,18 @@ function Header() {
 
   return (
     <div className="location">
-      {location.pathname === '/' &&
-        (<header className="header">
-          <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
-          <nav className="header__nav">
-            <p className="header__text" onClick={handleSignUp}>Регистрация</p>
-            <button className='header__button' type="button" onClick={handleSignIn}>Войти</button>
-          </nav>
-        </header>)}
-      {(location.pathname === '/movies' ||
-        location.pathname === '/saved-movies' ||
-        location.pathname === '/profile') &&
-          (<header className="header header__not-home-page">
+      {location.pathname === '/signup' ||
+      location.pathname === '/signin' ? null :
+        (!loggedIn ?
+          (<header className={`header ${location.pathname === '/' ? '' : 'header__not-home-page'}`}>
+            <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
+            <nav className="header__nav">
+              <p className="header__text" onClick={handleRegister}>Регистрация</p>
+              <button className='header__button' type="button" onClick={handleLogin}>Войти</button>
+            </nav>
+          </header>)
+          :
+          (<header className={`header ${location.pathname === '/' ? '' : 'header__not-home-page'}`}>
             <img className="header__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
             <nav className="header__navigation">
               <div className="header__navigation-links">
@@ -63,16 +63,16 @@ function Header() {
               </div>
               <div className="header__account" onClick={handleAccount}>
                 <p className="header__account-text">Аккаунт</p>
-                <button className='header__account-button' type="button">
+                <button className={`header__account-button ${location.pathname === '/' ? 'header__account-button_home-page' : ''}`} type="button">
                   <img className="header__account-logo" src={accountIcon} alt="Аккаунт"/>
                 </button>
               </div>
-              <button className={`header__burger ${isActive ? "header__burger_active" : ''}`} type="button" onClick={handleNav}>
-                {/* <span className={`header__burger-nav ${isActive ? "header__burger-nav_active" : ''}`}></span> */}
+              <button className={`header__burger ${location.pathname === '/' ? 'header__burger_home-page' : ''} ${isActive ? "header__burger_active" : ''}`} type="button" onClick={handleNav}>
               </button>
             </nav>
-            {isActive ? <Navigation/> : ''}
-          </header>)}
+            {isActive ? <Navigation onClose={handleNav} /> : ""}
+        </header>))
+      }
     </div>
   );
 }

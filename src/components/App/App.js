@@ -15,6 +15,7 @@ import NotFound from '../NotFound/NotFound';
 // import Navigation from '../Navigation/Navigation';
 import MoviesApi from "../../utils/MoviesApi";
 import MainApi from "../../utils/MainApi";
+import * as auth from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
 
   useEffect(() => {
     if (jwt) {
-      MainApi.checkToken(jwt)
+      auth.checkToken(jwt)
         .then((res) => {
           if (res) {
             setLoggedIn(true)
@@ -54,8 +55,9 @@ function App() {
     }
   }, [loggedIn, jwt])
 
+  // Добавление фильмо на страницу
   useEffect(() => {
-    if (jwt) {
+    if (jwt && (location.pathname === '/movies')) {
       MoviesApi.getMovies()
         .then(res => {
           localStorage.setItem('data', JSON.stringify(res));
@@ -71,7 +73,7 @@ function App() {
   }, [jwt, location])
 
   useEffect(() => {
-    if (jwt) {
+    if (jwt && (location.pathname === '/saved-movies')) {
       MainApi.getSavedMovies(jwt)
         .then(res => {
           localStorage.setItem('savedMovies', JSON.stringify(res.filter((i) => i.owner === currentUser._id)))
@@ -85,13 +87,13 @@ function App() {
           console.log(`Сохраненные фильмы не удалось получить: ${err}`)
         })
     }
-  }, [jwt, location, currentUser._id])
+  }, [jwt, location, currentUser])
 
   const { width } = LookWindowSize()
 
   // Регистрация
-  const handleRegister = (input) => {
-    MainApi.register(input).then(() => {
+  const handleRegister = ({ name, email, password }) => {
+    auth.register({ name, email, password }).then(() => {
       navigate('/signin')
     })
     .catch((err) => {
@@ -100,8 +102,8 @@ function App() {
   }
 
   // Авторизация
-  const handleLogin = (input) => {
-    MainApi.login(input).then((res) => {
+  const handleLogin = ({ email, password }) => {
+    auth.login({ email, password }).then((res) => {
       localStorage.setItem('jwt', res.token)
       setLoggedIn(true)
       navigate("/")
@@ -118,7 +120,7 @@ function App() {
       const nameEN = item.nameEN;
       const nameRU = item.nameRU.toLowerCase();
       return ((nameEN && nameEN.toLowerCase().includes(values) && (values !== '')) || (nameRU && nameRU.toLowerCase().includes(value) && (values !== '')))
-        && item
+        ? item : null
     });
 
     localStorage.setItem('filtered', JSON.stringify(sortedMovieSearch));
@@ -135,15 +137,17 @@ function App() {
   useEffect(() => {
     const filterMovies = JSON.parse(localStorage.getItem('filtered'));
     if (filterMovies) {
-      setLocalData(filterMovies);
-    } else {
-      setLocalData([]);
+      if (filterMovies.length !== 0) {
+        setLocalData(filterMovies);
+      } else {
+        setLocalData([]);
+      }
     }
   }, []);
 
   const durationSwitch = (checked) => {
     const filterMovies = JSON.parse(localStorage.getItem('filtered'));
-    if (!checked) {
+    if (!checked && filterMovies) {
       const shorts = filterMovies.filter((item) => item.duration <= 40);
       setMovieCards(shorts);
     } else {
@@ -191,7 +195,7 @@ function App() {
 
   // Изменение профиля
   const handleEditProfile = (user) => {
-    MainApi.editCurrentUser(jwt, user)
+    auth.patchUserInfo(jwt, user)
       .then(res => setCurrentUser(res))
       .catch(err => console.log(err))
   }
@@ -208,7 +212,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
-        <Header isLogged={loggedIn} LookWindowSize={LookWindowSize}/>
+        <Header loggedIn={loggedIn} LookWindowSize={LookWindowSize}/>
         <Routes>
           <Route path="/signup" element={
             <Register submit={handleRegister}/>

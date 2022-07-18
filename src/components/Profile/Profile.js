@@ -4,9 +4,9 @@ import {CurrentUserContext} from "../constexts/CurrentUserContext";
 import {useContext, useState} from "react";
 
 function Profile({ signOut, onSubmit }) {
-  const currentUser = useContext(CurrentUserContext);
-  const [userName, setUserName] = useState(currentUser.name);
-  const [userEmail, setUserEmail] = useState(currentUser.email);
+  const user = useContext(CurrentUserContext);
+  const [userName, setUserName] = useState(user.name);
+  const [userEmail, setUserEmail] = useState(user.email);
 
   function handleChangeName(evt) {
     setUserName(evt.target.value);
@@ -25,7 +25,7 @@ function Profile({ signOut, onSubmit }) {
     <section className="profile">
       <div className="profile__block">
         <form className='profile__form' onSubmit={handleSubmit}>
-          <h2 className='profile__header'>{`Привет, ${currentUser.name}!`}</h2>
+          <h2 className='profile__header'>{`Привет, ${user.name}!`}</h2>
           <div className='profile__text'>
             <label className='profile__form-label'>Имя</label>
             <input className='profile__form-input' value={userName} onChange={handleChangeName}/>

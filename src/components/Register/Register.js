@@ -36,8 +36,8 @@ function Register({ submit }) {
               name="name"
               id="name"
               // value="Виталий"
-              minlength="2"
-              maxlength="30"
+              minLength="2"
+              maxLength="30"
               onChange={handleChange}
               required
             />
@@ -72,7 +72,7 @@ function Register({ submit }) {
               required
             />
           </div>
-          <button className='register__button' type='submit' disabled={isValid !== true}>
+          <button className='register__button' type='submit' /* disabled={isValid !== true} */>
             Зарегистрироваться
           </button>
         </form>

@@ -57,7 +57,7 @@ function Login({ submit }) {
               required
             />
           </div>
-          <button className='login__button' type='submit' disabled={isValid !== true}>
+          <button className='login__button' type='submit' /* disabled={isValid !== true}*/>
             Войти
           </button>
         </form>

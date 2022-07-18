@@ -162,6 +162,11 @@
   cursor: pointer;
 }
 
+.header__account-button_home-page {
+  border: 1px solid rgb(229, 171, 234);
+  background-color: rgb(229, 171, 234);
+}
+
 .header__account-logo {
   margin: 0;
   padding: 0;
@@ -183,6 +188,10 @@
 .header__burger:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.header__burger_home-page {
+  background-color: rgba(243, 193, 248, 1);
 }
 
 .header__burger_active {
