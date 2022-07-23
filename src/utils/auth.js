@@ -1,5 +1,5 @@
-// export const BASE_URL = 'https://api.movies.kd.nomoredomains.work'
-export const BASE_URL = 'http://localhost:3001'
+export const BASE_URL = 'https://api.bobbydorfman.movies.nomoredomains.xyz'
+// export const BASE_URL = 'http://localhost:3001'
 
 // Регистрация
 export const register = (input) => {
