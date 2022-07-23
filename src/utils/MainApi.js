@@ -1,121 +1,59 @@
-class MainApi {
-  constructor(config) {
-    this._url = config.url;
-    this._headers = config.headers;
-  }
+const BASE_URL = "http://localhost:3001"
 
-  // Проверка ответа
-  _checkAnswer(res) {
-      if (res.ok){
-          return res.json();}
-      return Promise.reject(res)
-  }
-
-  // Получение токена
-  _getToken() {
-    const jwt = localStorage.getItem("jwt");
-    return {
-      Authorization: `Bearer ${jwt}`,
-      ...this._headers
-    }
-  }
-
-  // Добавление сохраненных фильмов с сервера
-  getSavedMovies() {
-    return fetch(`${this._url}/movies`, {
-      method: 'GET',
-      headers: this._getToken()
-    })
-    .then(this._checkAnswer)
-  }
-
-  // Добавление фильмов с сервера
-  addMovies(movie) {
-    return fetch(`${this._url}/movies`, {
-      method: 'POST',
-      headers: this._getToken(),
-      body: JSON.stringify(movie)
-    })
-    .then(this._checkAnswer)
-  }
-
-  // Удаление фильма
-  deleteMovie(movie) {
-    return fetch(`${this._url}/movies/${movie._id}`, {
-      method: "DELETE",
-      headers: this._getToken(),
-    })
-    .then(this._checkAnswer)
-  }
-
-  // Загрузка данных профиля с сервера
-  getApiUserInfo() {
-    return fetch(`${this._url}/users/me`, {
-      method: 'GET',
-      headers: this._getToken(),
-    })
-    .then(this._checkAnswer)
-  }
-
-  // // Отправка новых данных профиля на сервер
-  // patchUserInfo(data) {
-  //   return fetch(`${this._url}/users/me`, {
-  //     method: 'PATCH',
-  //     headers: this._getToken(),
-  //     body: JSON.stringify({
-  //       name: data.name,
-  //       email: data.email
-  //     })
-  //   })
-  //   .then(this._checkAnswer)
-  // }
-
-  // // Регистрация
-  // register(email, password, name) {
-  //   return fetch(`${this._url}/signup`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({email, password, name})
-  //   })
-  //   .then(this._checkAnswer)
-  // }
-
-  // // Авторизация
-  // login(email, password) {
-  //   return fetch(`${this._url}/signin`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({email, password})
-  //   })
-  //   .then(this._checkAnswer)
-  // }
-
-
-//   checkToken(jwt) {
-//     return fetch(`${this._url}/users/me`, {
-//       method: 'GET',
-//       headers: {
-//         'Accept': 'application/json',
-//         "Content-Type": "application/json",
-//         "Authorization" : `Bearer ${jwt}`
-//       }
-//     })
-//     .then(this._checkAnswer)
-//   }
+export const getSavedMovies = (jwt) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${jwt}`,
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+  })
+    .then(checkAnswer)
 }
 
-const mainApi = new MainApi({
-  // url: "https://api.movies.kd.nomoredomains.work",
-  url: "http://localhost:3001",
-  headers: {
-    "content-type": "application/json"
-  }
-});
+export const saveMovies = (movie, jwt) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${jwt}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      country: movie.country,
+      description: movie.description,
+      director: movie.director,
+      duration: movie.duration,
+      image: `https://api.nomoreparties.co${movie.image.url}`,
+      nameEN: movie.nameEN,
+      nameRU: movie.nameRU,
+      trailerLink: movie.trailerLink
+        ? movie.trailerLink
+        : `https://www.youtube.com/results?search_query=трейлер+${movie.nameRU}`,
+      year: movie.year,
+      thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+      movieId: movie.id,
+    })
+  })
+    .then(checkAnswer)
+}
 
-export default mainApi;
+export const deleteMovie = (movie, jwt) => {
+  return fetch(`${BASE_URL}/movies/${movie._id}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${jwt}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(checkAnswer)
+}
+
+// Проверка ответа
+const checkAnswer = (res) => {
+  if (res.ok){
+    return res.json();}
+  return Promise.reject(res)
+}

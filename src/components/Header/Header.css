@@ -139,6 +139,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  transition: all 0.4s ease-in-out;
 }
 
 .header__account-text:hover {
@@ -154,7 +155,7 @@
   border-radius: 4px;
   margin: auto 0;
   padding: 0;
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__account-button:hover {
@@ -182,7 +183,7 @@
   background-color: white;
   margin: 0;
   padding: 0;
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__burger:hover {
@@ -205,7 +206,8 @@
   object-fit: cover;
   z-index: 3;
   background-position: center;
-  transition: all 0.4s ease-in-out;
+  background-color: white;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__burger_active:hover {

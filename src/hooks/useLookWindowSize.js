@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function LookWindowSize() {
+function useLookWindowSize() {
   const getWindowSize = () => {
     const { innerWidth: width } = window;
     return { width };
@@ -20,4 +20,4 @@ function LookWindowSize() {
   return windowSize;
 }
 
-export default LookWindowSize;
+export default useLookWindowSize;

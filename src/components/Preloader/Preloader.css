@@ -86,3 +86,7 @@
     background: rgba(243, 193, 248, 1);
     animation: preloader-inside-red 1s ease-in-out infinite;
 }
+
+.preloader_none {
+  display: none;
+}

@@ -2,7 +2,7 @@ import './Navigation.css';
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import accountIcon from '../../images/icon__COLOR_icon-main.svg';
 
-function Navigation() {
+function Navigation({ onClose }) {
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -11,13 +11,18 @@ function Navigation() {
     navigate('/profile');
   }
 
+  function handleClick() {
+    onClose()
+    return location
+  }
+
   return (
-    <section className="navigation">
+    <section className="navigation" onClick={onClose}>
       <div className='navigation__block'>
         <div className='navigation__links'>
-          <Link className={`navigation__link ${location.pathname === '/' ? 'navigation__link-active' : ''}`} to="/">Главная</Link>
-          <Link className={`navigation__link ${location.pathname === '/movies' ? 'navigation__link-active' : ''}`} to="/movies">Фильмы</Link>
-          <Link className={`navigation__link ${location.pathname === '/saved-movies' ? 'navigation__link-active' : ''}`} to="/saved-movies">Сохранённые фильмы</Link>
+          <Link className={`navigation__link ${location.pathname === '/' ? 'navigation__link-active' : ''}`} to="/" onClick={handleClick}>Главная</Link>
+          <Link className={`navigation__link ${location.pathname === '/movies' ? 'navigation__link-active' : ''}`} to="/movies" onClick={handleClick}>Фильмы</Link>
+          <Link className={`navigation__link ${location.pathname === '/saved-movies' ? 'navigation__link-active' : ''}`} to="/saved-movies" onClick={handleClick}>Сохранённые фильмы</Link>
         </div>
         <div className="navigation__account" onClick={handleAccount}>
           <p className="navigation__account-text">Аккаунт</p>
