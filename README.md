@@ -1,5 +1,5 @@
 # Ссылка на проект:
-https://https://bobbydorfman.movies.nomoredomains.xyz/
+https://bobbydorfman.movies.nomoredomains.xyz/
 
 # Getting Started with Create React App
 
