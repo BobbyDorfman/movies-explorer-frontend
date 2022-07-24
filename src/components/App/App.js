@@ -226,7 +226,7 @@ function App() {
           <Route path="/" element={
             <Main/>
           }/>
-          <Route
+          {/* <Route
             path="/movies"
             element={
               <ProtectedRoute loggedIn={loggedIn}>
@@ -244,8 +244,44 @@ function App() {
                 />
               </ProtectedRoute>
             }
-          />
-          <Route
+          /> */}
+          <Route path="/movies" element={
+            <>
+              <Preloader
+                loggedIn={loggedIn}
+                isLoading={isLoading}
+              />
+              <ProtectedRoute
+                component={Movies}
+                loggedIn={loggedIn}
+                listLength={listLength}
+                durationSwitch={durationSwitch}
+                handleSearch={handleSearch}
+                savedMovies={savedMovies}
+                movieCards={movieCards}
+                onSave={handleSaveMovie}
+                addMovies={addMovies}
+              />
+            </>
+          }/>
+          <Route path="/saved-movies" element={
+            <>
+              <Preloader
+                loggedIn={loggedIn}
+                isLoading={isLoading}
+              />
+              <ProtectedRoute
+                component={SavedMovies}
+                loggedIn={loggedIn}
+                listLength={listLength}
+                durationSwitch={durationSwitch}
+                onDelete={handleDeleteMovie}
+                handleSearch={handleSearch}
+                movieCards={savedMovies}
+              />
+            </>
+          }/>
+          {/* <Route
             path="/saved-movies"
             element={
               <ProtectedRoute loggedIn={loggedIn}>
@@ -261,15 +297,25 @@ function App() {
                   />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route path="/profile" element={
+            <>
+              <ProtectedRoute
+                component={Profile}
+                loggedIn={loggedIn}
+                onSubmit={handleEditProfile}
+                signOut={handleOut}
+              />
+            </>
+          }/>
+          {/* <Route path="/profile" element={
             <ProtectedRoute loggedIn={loggedIn}>
               <Profile
                 onSubmit={handleEditProfile}
                 signOut={handleOut}
               />
             </ProtectedRoute>
-          }/>
+          }/> */}
           <Route path="*" element={
             <NotFound/>
           }/>
