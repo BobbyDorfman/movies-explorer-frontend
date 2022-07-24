@@ -139,6 +139,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  transition: all 0.4s ease-in-out;
 }
 
 .header__account-text:hover {
@@ -154,12 +155,17 @@
   border-radius: 4px;
   margin: auto 0;
   padding: 0;
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__account-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.header__account-button_home-page {
+  border: 1px solid rgb(229, 171, 234);
+  background-color: rgb(229, 171, 234);
 }
 
 .header__account-logo {
@@ -177,12 +183,16 @@
   background-color: white;
   margin: 0;
   padding: 0;
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__burger:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.header__burger_home-page {
+  background-color: rgba(243, 193, 248, 1);
 }
 
 .header__burger_active {
@@ -196,7 +206,8 @@
   object-fit: cover;
   z-index: 3;
   background-position: center;
-  transition: all 0.4s ease-in-out;
+  background-color: white;
+  /* transition: all 0.4s ease-in-out; */
 }
 
 .header__burger_active:hover {

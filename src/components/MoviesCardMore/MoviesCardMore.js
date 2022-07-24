@@ -1,11 +1,11 @@
 import './MoviesCardMore.css';
 
-function MoviesCardMore({ movies }) {
+const MoviesCardMore = ({ addMovies, card }) => {
   return (
-    <section className="movies-card-more">
-      <button className={`${movies.length > 11 ? "movies-card-more__button" : "movies-card-more__button-inactive"}`}>Ещё</button>
-    </section>
-  );
-}
+    <div className='movies-card-more'>
+      <button onClick={() => addMovies()} className="movies-card-more__button">Еще</button>
+    </div>
+  )
+};
 
-export default MoviesCardMore;
+export default MoviesCardMore

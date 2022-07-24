@@ -1,22 +1,22 @@
-import './Movies.css';
-import movies from '../../utils/moviesConst';
 import React from "react";
 import SearchForm from '../SearchForm/SearchForm';
-// import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-// import MoviesCard from '../MoviesCard/MoviesCard';
-import MoviesCardMore from '../MoviesCardMore/MoviesCardMore';
 
-function Movies() {
+function Movies({ movieCards, onSave, savedMovies, handleSearch, durationSwitch, listLength, addMovies }) {
   return (
       <main>
           <section className="movies">
-            <SearchForm/> {/* форма поиска, куда пользователь будет вводить запрос */}
-             {/* <Preloader/> отвечает за работу прелоадера. */}
-            <MoviesCardList movies={movies}/> {/* компонент, который управляет отрисовкой карточек фильмов на страницу
-            и их количеством. */}
-            {/* <MoviesCard/> компонент одной карточки фильма. */}
-            <MoviesCardMore movies={movies}/>
+            <SearchForm /* форма поиска, куда пользователь будет вводить запрос */
+              handleSearch={handleSearch}
+              durationSwitch={durationSwitch}
+            />
+            <MoviesCardList /* компонент, который управляет отрисовкой карточек фильмов на страницу
+            и их количеством. */
+              movieCards={movieCards}
+              onSave={onSave}
+              savedMovies={savedMovies}
+              listLength={listLength}
+              addMovies={addMovies}/>
           </section>
       </main>
   );
