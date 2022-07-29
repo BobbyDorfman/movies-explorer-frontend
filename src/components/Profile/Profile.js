@@ -1,6 +1,6 @@
 import './Profile.css';
 import { Link } from "react-router-dom";
-import {CurrentUserContext} from "../constexts/CurrentUserContext";
+import {CurrentUserContext} from "../../constexts/CurrentUserContext";
 import {useContext, useState} from "react";
 
 function Profile({ signOut, onSubmit }) {
@@ -29,35 +29,30 @@ function Profile({ signOut, onSubmit }) {
     <section className="profile">
       <div className="profile__block">
         <form className='profile__form' onSubmit={handleSubmit}>
-          <h2 className='profile__header'>{`Привет, ${user?.name}!`}</h2>
-          {/* <h2 className='profile__header'>{`Привет, !`}</h2> */}
+          <h2 className='profile__header'>{`Привет, ${user.name}!`}</h2>
           <div className='profile__text'>
             <label className='profile__form-label'>Имя</label>
-            {/* <input className='profile__form-input'/> */}
             <input
               className='profile__form-input'
-              value={userName?.name}
               onChange={handleChangeName}
               name="name"
               id="name"
               type="text"
               minLength="2"
               maxLength="30"
-              // defaultValue={user.name}
+              defaultValue={user.name}
               required
             />
           </div>
           <div className='profile__text'>
             <label className='profile__form-label'>E-mail</label>
-            {/* <input className='profile__form-input'/> */}
             <input
               className='profile__form-input'
-              value={userEmail?.email}
               onChange={handleChangeEmail}
               name="email"
               id="email"
               type="email"
-              // defaultValue={user.email}
+              defaultValue={user.email}
               required
             />
           </div>

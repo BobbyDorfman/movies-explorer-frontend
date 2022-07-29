@@ -49,7 +49,7 @@
 }
 
 .profile__form-label {
-  max-width: 141px;
+  width: 40px;
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
@@ -62,7 +62,7 @@
 }
 
 .profile__form-input {
-  max-width: 122px;
+  width: 100%;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;

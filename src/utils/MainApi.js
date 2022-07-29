@@ -1,5 +1,5 @@
-const BASE_URL = 'https://api.bobbydorfman.movies.nomoredomains.xyz'
-// const BASE_URL = "http://localhost:3001"
+// const BASE_URL = 'https://api.bobbydorfman.movies.nomoredomains.xyz'
+const BASE_URL = "http://localhost:3001"
 
 export const getSavedMovies = (jwt) => {
   return fetch(`${BASE_URL}/movies`, {
@@ -22,12 +22,12 @@ export const saveMovies = (movie, jwt) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      country: movie.country,
+      country: movie.country ?? '1',
       description: movie.description,
       director: movie.director,
       duration: movie.duration,
       image: `https://api.nomoreparties.co${movie.image.url}`,
-      nameEN: movie.nameEN,
+      nameEN: movie.nameEN ?? movie.nameRU,
       nameRU: movie.nameRU,
       trailerLink: movie.trailerLink
         ? movie.trailerLink

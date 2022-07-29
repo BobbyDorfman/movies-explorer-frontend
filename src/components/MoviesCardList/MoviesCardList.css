@@ -25,7 +25,7 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .movies-card-list {
+  .movies-card-list__container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -48,6 +48,8 @@
 @media screen and (max-width: 768px) {
   .movies-card-list {
     width: calc(100% - 60px);
+  }
+  .movies-card-list__container {
     grid-template-columns: 1fr;
     grid-gap: 35px;
     margin: 70px auto 30px;
@@ -57,6 +59,8 @@
 @media screen and (max-width: 380px) {
   .movies-card-list {
     width: calc(100% - 20px);
+  }
+  .movies-card-list__container {
     grid-template-columns: 1fr;
     grid-gap: 16px;
     margin: 40px auto 30px;
