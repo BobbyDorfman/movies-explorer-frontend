@@ -16,7 +16,10 @@ function Movies({ movieCards, onSave, savedMovies, handleSearch, durationSwitch,
               onSave={onSave}
               savedMovies={savedMovies}
               listLength={listLength}
-              addMovies={addMovies}/>
+              addMovies={addMovies}
+              onDelete={onDelete}
+              currentUser={currentUser}
+            />
           </section>
       </main>
   );

@@ -1,13 +1,14 @@
 import './Profile.css';
 import { Link } from "react-router-dom";
-import {CurrentUserContext} from "../../constexts/CurrentUserContext";
-import {useContext, useState} from "react";
+import { CurrentUserContext } from "../../constexts/CurrentUserContext";
+import { useContext, useEffect, useState } from "react";
 
 function Profile({ signOut, onSubmit }) {
   const user = useContext(CurrentUserContext);
 
-  const [userName, setUserName] = useState(user?.name);
-  const [userEmail, setUserEmail] = useState(user?.email);
+  const [userName, setUserName] = useState(user.name);
+  const [userEmail, setUserEmail] = useState(user.email);
+  const [disableForm, setDisableForm] = useState(true)
 
   function handleChangeName(evt) {
     setUserName(evt.target.value);
@@ -25,6 +26,16 @@ function Profile({ signOut, onSubmit }) {
     })
   }
 
+  useEffect(() => {
+    if (userName !== user.name || userEmail !== user.email) {
+      setDisableForm(false)
+    }
+     else {
+      setDisableForm(true)
+    }
+  }, [handleChangeName, handleChangeEmail, userName, userEmail, user.name, user.email])
+
+
   return (
     <section className="profile">
       <div className="profile__block">
@@ -36,7 +47,7 @@ function Profile({ signOut, onSubmit }) {
               className='profile__form-input'
               onChange={handleChangeName}
               name="name"
-              id="name"
+              // id="name"
               type="text"
               minLength="2"
               maxLength="30"
@@ -50,13 +61,14 @@ function Profile({ signOut, onSubmit }) {
               className='profile__form-input'
               onChange={handleChangeEmail}
               name="email"
-              id="email"
+              // id="email"
               type="email"
               defaultValue={user.email}
               required
             />
           </div>
-          <button className='profile__button' type='submit'>Редактировать</button>
+          <button className={`profile__button ${disableForm && "profile__button_disabled"}`}
+          type='submit' disabled={disableForm}>Редактировать</button>
         </form>
         <Link className='profile__link' to='/signin' onClick={signOut}>Выйти из аккаунта</Link>
       </div>

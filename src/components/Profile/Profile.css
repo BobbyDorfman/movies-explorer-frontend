@@ -98,6 +98,13 @@
 .profile__button:hover {
   opacity: 0.6;
   cursor: pointer;
+  z-index: 1;
+}
+
+.profile__button_disabled {
+  opacity: 0.5;
+  cursor: nw-resize;
+  z-index: 2;
 }
 
 .profile__link {

@@ -147,17 +147,6 @@ function App() {
     setSavedMoviesFilter(sortedMovieSearch.length !== 0 ? sortedMovieSearch : localSavedData);
   }
 
-  // useEffect(() => {
-  //   const filterMovies = JSON.parse(localStorage.getItem('filtered'));
-  //   if (filterMovies) {
-  //     if (filterMovies.length !== 0) {
-  //       setLocalData(filterMovies);
-  //     } else {
-  //       setLocalData([]);
-  //     }
-  //   }
-  // }, []);
-
   // Сортировка по длине фильмов
   const durationSwitch = (checked) => {
     const filterMovies = JSON.parse(localStorage.getItem('filtered'));
@@ -237,6 +226,8 @@ function App() {
     localStorage.removeItem('savedMovies');
     localStorage.removeItem('movieList');
     localStorage.removeItem('data')
+    localStorage.removeItem('saveSearchValue')
+    localStorage.removeItem('saveCheck')
     setCurrentUser(null)
     setLoggedIn(false);
     setSavedMoviesFilter([])
