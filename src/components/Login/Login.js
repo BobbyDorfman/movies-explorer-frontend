@@ -5,11 +5,11 @@ import { useFormValidation } from "../../hooks/useFormValidation";
 
 function Login({ submit }) {
 
-  const {values, handleChange, isValid, resetForm} = useFormValidation();
+  const {values, handleChange, isValid, /*resetForm*/} = useFormValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    resetForm()
+    // resetForm()
     if (isValid) {
       submit(values)
     }
@@ -57,7 +57,9 @@ function Login({ submit }) {
               required
             />
           </div>
-          <button className='login__button' type='submit' /* disabled={isValid !== true}*/>
+          {/* <button className='login__button' type='submit'> */}
+          <button className={`login__button ${!isValid && 'login__button_disabled'}`} type='submit'
+          disabled={!isValid}>
             Войти
           </button>
         </form>

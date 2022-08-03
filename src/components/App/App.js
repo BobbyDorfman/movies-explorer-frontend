@@ -18,6 +18,10 @@ import * as auth from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Preloader from "../Preloader/Preloader";
 
+import InfoTooltip from "../InfoTooltip/InfoTooltip";
+import Error from "../../images/Error.svg"
+import Done from "../../images/Done.svg"
+
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,6 +33,10 @@ function App() {
   const [moviesNumber, setMoviesNumber] = useState(0);
   const [listLength, setListLength] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [popupImage, setPopupImage] = useState('')
+  const [popupText, setPopupText] = useState('')
+  const [infoTooltip, setInfoTooltip] = useState(false)
 
   const jwt = localStorage.getItem("jwt")
 
@@ -96,12 +104,19 @@ function App() {
   const handleRegister = (input) => {
     auth.register(input)
     .then(() => {
+      setPopupImage(Done)
+      setPopupText("Вы успешно зарегистрировались!")
+      // TODO
       handleLogin({ email: input.email, password: input.password })
     })
     .then(() => navigate('/movies'))
     .catch((err) => {
+      setPopupImage(Error)
+      setPopupText('Что-то пошло не так! Попробуйте ещё раз.')
       console.log(`Ошибка регистрации: ${err}`)
+      // handleInfoTooltip()
     })
+    .finally(handleInfoTooltip)
   }
 
   // Авторизация
@@ -110,10 +125,14 @@ function App() {
     .then((res) => {
       localStorage.setItem('jwt', res.token)
       setLoggedIn(true)
-      navigate("/movies")
+      setTimeout(() => {navigate('/movies')}, 200)
+      // navigate("/movies")
     })
     .catch((err) => {
       console.log(`Ошибка входа: ${err}`)
+      setPopupImage(Error)
+      setPopupText('Не верные имя пользователя или пароль.')
+      handleInfoTooltip()
     })
   }
 
@@ -158,9 +177,10 @@ function App() {
     }
   };
 
-  // Сохранение переключателя
+  // Сортировка по длине сохраненных фильмов
   const savedDurationSwitch = (checked) => {
     const savedFiltered = JSON.parse(localStorage.getItem('savedFilter'));
+    // if (checked === '1' && savedFiltered) {
     if (checked === '1' && savedFiltered) {
       const shorts = savedFiltered.filter((item) => item.duration <= 40);
       setSavedMoviesFilter(shorts);
@@ -182,6 +202,25 @@ function App() {
       setListLength(5);
     }
   }, [width])
+
+  //Добавляем обработчик Escape
+  useEffect(() => {
+    if (infoTooltip) {
+      const closeByEscape = (e) => {
+        if (e.key === 'Escape') {
+          closeAllPopups();
+        }
+      }
+
+      document.addEventListener('keydown', closeByEscape)
+
+      return () => document.removeEventListener('keydown', closeByEscape)
+    }
+  }, [infoTooltip])
+
+
+
+
 
   // "Ещё"
   const addMovies = () => {
@@ -217,7 +256,16 @@ function App() {
   const handleEditProfile = (user) => {
     auth.patchUserInfo(jwt, user)
       .then(res => setCurrentUser(res))
-      .catch(err => console.log(`При обновлении профиля произошла ошибка: ${err}`))
+      .then(() => {
+        setPopupImage(Done)
+        setPopupText("Данные успешно изменены!")
+      })
+      .catch((err) => {
+        setPopupImage(Error)
+        setPopupText('При обновлении профиля произошла ошибка.')
+        console.log(`При обновлении профиля произошла ошибка: ${err}`)
+      })
+      .finally(handleInfoTooltip)
   }
 
   // Выход из аккаунта
@@ -233,8 +281,24 @@ function App() {
     setSavedMoviesFilter([])
     setFilteredMovies([])
     setLocalSavedData([])
-    navigate('/');
+    setTimeout(() => {navigate('/')}, 2)
+    // navigate('/');
   }
+
+  const closeAllPopups = () => {
+    setInfoTooltip(false)
+  }
+
+  const handleClickOutside = (e) => {
+    if (e.target.classList.contains('popup_is-opened')) {
+      closeAllPopups()
+    }
+  }
+
+  const handleInfoTooltip = () => {
+    setInfoTooltip(true)
+  }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -307,6 +371,13 @@ function App() {
           }/>
         </Routes>
         <Footer/>
+        <InfoTooltip
+          isOpen={infoTooltip}
+          onClose={closeAllPopups}
+          onCloseOnOverlay={handleClickOutside}
+          image={popupImage}
+          text={popupText}
+        />
       </div>
     </CurrentUserContext.Provider>
   );

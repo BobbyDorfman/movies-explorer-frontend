@@ -108,7 +108,19 @@
 
 .register__button:hover {
   opacity: 0.6;
+  z-index: 1;
   cursor: pointer;
+}
+
+.register__button_disabled {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.register__button_disabled:hover {
+  z-index: 2;
+  cursor: default;
+  opacity: 1;
 }
 
 .register__text {

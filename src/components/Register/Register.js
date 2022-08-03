@@ -5,11 +5,11 @@ import { useFormValidation } from "../../hooks/useFormValidation";
 
 function Register({ submit }) {
 
-  const {values, handleChange, isValid, resetForm} = useFormValidation();
+  const {values, handleChange, isValid, /*resetForm*/} = useFormValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    resetForm()
+    // resetForm()
     if (isValid) {
       submit(values)
     }
@@ -72,7 +72,8 @@ function Register({ submit }) {
               required
             />
           </div>
-          <button className='register__button' type='submit' /* disabled={isValid !== true} */>
+          <button className={`register__button ${!isValid && 'register__button_disabled'}`} type='submit'
+          disabled={!isValid}>
             Зарегистрироваться
           </button>
         </form>
