@@ -1,9 +1,19 @@
 import './Login.css';
 import logoHeader from '../../images/logo.svg';
 import { Link, useNavigate } from "react-router-dom";
+import { useFormValidation } from "../../hooks/useFormValidation";
 
+function Login({ submit }) {
 
-function Login() {
+  const {values, handleChange, isValid, /*resetForm*/} = useFormValidation();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    // resetForm()
+    if (isValid) {
+      submit(values)
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -15,7 +25,7 @@ function Login() {
     <section className="login">
       <img className="login__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
       <div className='login__block'>
-        <form className='login__form'>
+        <form className='login__form' onSubmit={handleSubmit}>
           <h2 className='login__header'>Рады видеть!</h2>
           <div className='login__form-input'>
             <label className='login__label'>E-mail</label>
@@ -25,7 +35,10 @@ function Login() {
               placeholder="E-mail"
               name="email"
               id="email"
-              value="pochta@yandex.ru"
+              minLength="2"
+              maxLength="64"
+              // value="pochta@yandex.ru"
+              onChange={handleChange}
               required
             />
           </div>
@@ -34,14 +47,21 @@ function Login() {
             <input
               className="login__input"
               type="password"
-              placeholder=""
+              placeholder="Пароль"
               name="password"
               id="password"
-              value=""
+              minLength="2"
+              maxLength="40"
+              // value=""
+              onChange={handleChange}
               required
             />
           </div>
-          <button className='login__button' type='submit'>Войти</button>
+          {/* <button className='login__button' type='submit'> */}
+          <button className={`login__button ${!isValid && 'login__button_disabled'}`} type='submit'
+          disabled={!isValid}>
+            Войти
+          </button>
         </form>
         <p className="login__text">Ещё не зарегистрированы?
           <Link className="login__link" to="/signup">Регистрация</Link>

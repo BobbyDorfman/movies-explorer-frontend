@@ -1,9 +1,19 @@
 import './Register.css';
 import logoHeader from '../../images/logo.svg';
 import { Link, useNavigate } from "react-router-dom";
+import { useFormValidation } from "../../hooks/useFormValidation";
 
+function Register({ submit }) {
 
-function Register() {
+  const {values, handleChange, isValid, /*resetForm*/} = useFormValidation();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    // resetForm()
+    if (isValid) {
+      submit(values)
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -15,7 +25,7 @@ function Register() {
     <section className="register">
       <img className="register__logo" onClick={handleStartPage} src={logoHeader} alt="Логотип"/>
       <div className='register__block'>
-        <form className='register__form'>
+        <form className='register__form' onSubmit={handleSubmit}>
           <h2 className='register__header'>Добро пожаловать!</h2>
           <div className='register__form-input'>
             <label className='register__label'>Имя</label>
@@ -25,9 +35,10 @@ function Register() {
               placeholder="Имя"
               name="name"
               id="name"
-              value="Виталий"
-              minlength="2"
-              maxlength="30"
+              // value="Виталий"
+              minLength="2"
+              maxLength="30"
+              onChange={handleChange}
               required
             />
           </div>
@@ -39,7 +50,10 @@ function Register() {
               placeholder="E-mail"
               name="email"
               id="email"
-              value="pochta@yandex.ru"
+              // value="pochta@yandex.ru"
+              minLength="2"
+              maxLength="64"
+              onChange={handleChange}
               required
             />
           </div>
@@ -48,14 +62,20 @@ function Register() {
             <input
               className="register__input"
               type="password"
-              placeholder="password"
+              placeholder="Пароль"
               name="password"
               id="password"
-              value="••••••••••••••"
+              // value="••••••••••••••"
+              minLength="2"
+              maxLength="40"
+              onChange={handleChange}
               required
             />
           </div>
-          <button className='register__button' type='submit'>Зарегистрироваться</button>
+          <button className={`register__button ${!isValid && 'register__button_disabled'}`} type='submit'
+          disabled={!isValid}>
+            Зарегистрироваться
+          </button>
         </form>
         <p className="register__text">Уже зарегистрированы?
           <Link className="register__link" to="/signin"> Войти</Link>

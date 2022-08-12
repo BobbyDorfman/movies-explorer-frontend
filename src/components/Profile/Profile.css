@@ -49,7 +49,7 @@
 }
 
 .profile__form-label {
-  max-width: 141px;
+  width: 40px;
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
@@ -62,7 +62,7 @@
 }
 
 .profile__form-input {
-  max-width: 122px;
+  width: 100%;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
@@ -92,12 +92,27 @@
   border: none;
   margin: 0 auto;
   padding-bottom: 16px;
+  z-index: 1;
   transition: all 0.4s ease-in-out;
 }
 
 .profile__button:hover {
   opacity: 0.6;
   cursor: pointer;
+  z-index: 1;
+}
+
+.profile__button_disabled {
+  /* opacity: 0.5;
+  cursor: nw-resize; */
+  z-index: 2;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.profile__button_disabled:hover {
+  z-index: 2;
+  cursor: default;
+  opacity: 1;
 }
 
 .profile__link {
